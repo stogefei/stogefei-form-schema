@@ -1,11 +1,4 @@
 // https://github.com/conventional-changelog/commitlint/blob/master/docs/reference-rules.md
-/*
-  <type>(<scope>): <subject>
-  // 空一行
-  <body>
-  // 空一行
-  <footer>
- */
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {

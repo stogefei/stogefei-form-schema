@@ -2,17 +2,17 @@
 module.exports = {
   // type 的枚举
   types: [
-    { value: 'feat', name: 'feat: 一个新功能' }, // (A new feature)
-    { value: 'improvement', name: 'improvement: 对当前功能的改进' }, // (An improvement to a current feature)
-    { value: 'fix', name: 'fix: 一个bug修复' }, // (A bug fix)
-    { value: 'docs', name: 'docs: 仅是文档修改' }, // (Documentation only changes)
+    { value: 'feat', name: '🚀feat: 一个新功能' }, // (A new feature)
+    { value: 'improvement', name: '⚡️improvement: 对当前功能的改进' }, // (An improvement to a current feature)
+    { value: 'fix', name: '🐛fix: 一个bug修复' }, // (A bug fix)
+    { value: 'docs', name: '📝docs: 仅是文档修改' }, // (Documentation only changes)
     {
       value: 'style',
-      name: 'style: 不会影响代码含义的更改，例如空格，格式化，缺少分号等等', // (Changes that do not affect the meaning of the code) \n         例如空格，格式化，缺少分号，等等(white-space, formatting, missing semi-colons, etc)
+      name: '💄style: 不会影响代码含义的更改，例如空格，格式化，缺少分号等等', // (Changes that do not affect the meaning of the code) \n         例如空格，格式化，缺少分号，等等(white-space, formatting, missing semi-colons, etc)
     },
     {
       value: 'refactor',
-      name: 'refactor: 代码重构', // (A code change that neither fixes a bug nor adds a feature)
+      name: '♻️refactor: 代码重构', // (A code change that neither fixes a bug nor adds a feature)
     },
     {
       value: 'perf',

@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-
 module.exports = {
   // type 的枚举
   types: [

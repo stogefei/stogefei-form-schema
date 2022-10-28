@@ -2,8 +2,8 @@
 module.exports = {
   // type 的枚举
   types: [
-    { value: 'feat', name: '🚀feat: 一个新功能' }, // (A new feature)
-    { value: 'improvement', name: '⚡️improvement: 对当前功能的改进' }, // (An improvement to a current feature)
+    { value: 'feat', name: '🎸feat: 一个新功能' }, // (A new feature)
+    { value: 'improvement', name: '🚀improvement: 对当前功能的改进' }, // (An improvement to a current feature)
     { value: 'fix', name: '🐛fix: 一个bug修复' }, // (A bug fix)
     { value: 'docs', name: '📝docs: 仅是文档修改' }, // (Documentation only changes)
     {
@@ -16,22 +16,22 @@ module.exports = {
     },
     {
       value: 'perf',
-      name: 'perf: 更改代码以提高性能', // (A code change that improves performance)
+      name: '⚡️perf: 更改代码以提高性能', // (A code change that improves performance)
     },
-    { value: 'test', name: 'test: 添加缺失的测试' }, // (Adding missing tests)
+    { value: 'test', name: '✅test: 添加缺失的测试' }, // (Adding missing tests)
     {
       value: 'chore',
-      name: 'chore: 更改构建过程或辅助工具和诸如文档生成之类的库', // (Changes to the build process or auxiliary tools) \n         和诸如文档生成之类的库(and libraries such as documentation generation)
+      name: '🔧chore: 更改构建过程或辅助工具和诸如文档生成之类的库', // (Changes to the build process or auxiliary tools) \n         和诸如文档生成之类的库(and libraries such as documentation generation)
     },
     {
       value: 'build',
-      name: 'build: 影响构建系统或外部依赖项的更改，例如gulp，broccoli，npm', // (Changes that affect the build system or external dependencies) \n         例如gulp，broccoli，npm(example scopes: gulp, broccoli, npm)
+      name: '🏠build: 影响构建系统或外部依赖项的更改，例如gulp，broccoli，npm', // (Changes that affect the build system or external dependencies) \n         例如gulp，broccoli，npm(example scopes: gulp, broccoli, npm)
     },
     {
       value: 'ci',
       name: 'ci: 对CI配置文件和脚本的更改，例如Travis, Circle, BrowserStack, SauceLabs', // (Changes to our CI configuration files and scripts) \n      例如Travis, Circle, BrowserStack, SauceLabs(example scopes: Travis, Circle, BrowserStack, SauceLabs)
     },
-    { value: 'revert', name: 'revert: 撤回之前某个提交' }, // (Revert to a commit)
+    { value: 'revert', name: '⏪revert: 撤回之前某个提交' }, // (Revert to a commit)
     { value: 'WIP', name: 'WIP: 工作正在进行中，还未完成但不影响项目运行' }, // (Work in progress)
   ],
   // scopes 的枚举

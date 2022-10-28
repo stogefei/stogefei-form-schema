@@ -10,9 +10,9 @@ module.exports = {
     sourceType: 'module',
   },
   extends: [
-    require.resolve('./plugins-config/js-standard.js'),
-    require.resolve('./plugins-config/ts-standard.js'),
-    require.resolve('./plugins-config/vue-standard.js'),
+    require.resolve('./config-plugins/js-standard.js'),
+    require.resolve('./config-plugins/ts-standard.js'),
+    require.resolve('./config-plugins/vue-standard.js'),
   ],
   rules: {
     // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

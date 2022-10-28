@@ -5,10 +5,12 @@
     "bootstrap": "npx lerna bootstrap",
     "changed": "lerna changed",
     "clean": "lerna clean",
-    "cz": "npx git-cz"
+    "cz": "npx git-cz",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "husky": "^8.0.0"
   },
   "husky": {
     "hooks": {

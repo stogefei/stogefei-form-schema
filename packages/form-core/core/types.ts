@@ -1,5 +1,4 @@
-import { PropType } from 'vue';
-
+import type { PropType, DefineComponent } from 'vue';
 export enum SchemaTypes {
   'NUMBER' = 'number',
   'INTEGER' = 'integer',
@@ -65,4 +64,47 @@ export const FieldProps = {
     type: Function as PropType<(v: any) => void>,
     required: true,
   },
+  // uiSchema: {
+  //   type: Object as PropType<Schema>,
+  //   required: true,
+  // },
+  // errorSchema: {
+  //   type: Object as PropType<Schema>,
+  //   required: true,
+  // },
 } as const;
+
+export type CommonFieldType = DefineComponent<typeof FieldProps>;
+
+export const CommonWidgetPropsDefine = {
+  value: {},
+  onChange: {
+    type: Function as PropType<(v: any) => void>,
+    required: true,
+  },
+  errors: {
+    type: Array as PropType<string[]>,
+  },
+  schema: {
+    type: Object as PropType<Schema>,
+    required: true,
+  },
+  options: {
+    type: Object as PropType<{ [key: string]: any }>,
+  },
+} as const;
+export const SelectionWidgetPropsDefine = {
+  ...CommonWidgetPropsDefine,
+  options: {
+    type: Array as PropType<
+      Array<{
+        key: string;
+        value: any;
+      }>
+    >,
+    required: true,
+  },
+} as const;
+export type SelectionWidgetDefine = DefineComponent<
+  typeof SelectionWidgetPropsDefine
+>;

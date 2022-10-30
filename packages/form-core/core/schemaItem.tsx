@@ -1,19 +1,24 @@
 import { computed, defineComponent } from 'vue';
 import { SchemaTypes, FieldProps } from './types';
-import { StringField, NumberField, ObjectField } from './fields';
+import {
+  StringField, NumberField, ObjectField, ArrayField,
+} from './fields';
 import { retrieveSchema } from './utils';
+// import { useVJSFContext } from './context';
 export default defineComponent({
-  name: 'SchemaFormItems',
+  name: 'SchemaFormItem',
   props: FieldProps,
   setup (props, { slots, attrs, emit }) {
     const retrievedSchemaRef = computed(() => {
       const { schema, rootSchema, value } = props;
+      // const formContext = useVJSFContext();
       return retrieveSchema(schema, rootSchema, value);
     });
-    console.log(retrievedSchemaRef, 'retrievedSchemaRef');
+    // console.log(retrievedSchemaRef, 'retrievedSchemaRef');
     return () => {
       const schema = props.schema;
       const type = schema?.type;
+      const retrieveSchemaValue = retrievedSchemaRef.value;
       let Component: any;
       switch (type) {
         case SchemaTypes.STRING: {
@@ -28,12 +33,15 @@ export default defineComponent({
           Component = ObjectField;
           break;
         }
+        case SchemaTypes.ARRAY:
+          Component = ArrayField;
+          break;
         default: {
           console.log(`${type} is not supported`);
           return null;
         }
       }
-      return <Component {...props} />;
+      return <Component {...props} schema={retrieveSchemaValue} />;
     };
   },
 });

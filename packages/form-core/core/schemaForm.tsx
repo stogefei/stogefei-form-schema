@@ -2,12 +2,12 @@ import {
   defineComponent, PropType, provide, reactive,
 } from 'vue';
 import { Schema } from './types';
-import SchemaItems from './schemaItems';
+import SchemaItem from './schemaItem';
 import { SchemaFormContextKey } from './context';
 export default defineComponent({
   name: 'SchemaForm',
   components: {
-    SchemaItems,
+    SchemaItem,
   },
   props: {
     schema: {
@@ -27,13 +27,13 @@ export default defineComponent({
       props.onChange(v);
     };
     const context = reactive({
-      SchemaItems,
+      SchemaItem,
     });
     provide(SchemaFormContextKey, context);
     return () => {
       const { schema, value } = props;
       return (
-        <schema-items
+        <schema-item
           value={value}
           schema={schema}
           rootSchema={schema}

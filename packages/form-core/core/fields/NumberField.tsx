@@ -7,7 +7,7 @@ export default defineComponent({
     AInputNumber: InputNumber,
   },
   props: FieldProps,
-  setup (props, { slots, attrs, emit }) {
+  setup (props, { emit }) {
     const onChange = (val: number) => {
       emit('change', val);
     };

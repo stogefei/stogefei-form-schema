@@ -39,19 +39,26 @@ export default {
         title: 'singleTypeArray',
         type: 'array',
         items: {
-          type: 'object',
-          properties: {
-            name: {
-              title: 'singleTypeArray1',
-              type: 'string',
-            },
-            age: {
-              title: 'singleTypeArray2',
-              type: 'number',
-            },
-          },
+          type: 'string',
         },
       },
+      // singleTypeArray: {
+      //   title: 'singleTypeArray',
+      //   type: 'array',
+      //   items: {
+      //     type: 'object',
+      //     properties: {
+      //       name: {
+      //         title: 'singleTypeArray1',
+      //         type: 'string',
+      //       },
+      //       age: {
+      //         title: 'singleTypeArray2',
+      //         type: 'number',
+      //       },
+      //     },
+      //   },
+      // },
       multiSelectArray: {
         title: 'multiSelectArray',
         type: 'array',
@@ -83,6 +90,8 @@ export default {
     age: 75,
     bio: 'Roundhouse kicking asses since 1940',
     password: 'noneed',
-    singleTypeArray: [{ name: 'jokcy', age: 12 }],
+    singleTypeArray: ['jokey'],
+    multiSelectArray: ['123'],
+    // singleTypeArray: [{ name: 'jokcy', age: 12 }],
   },
 };

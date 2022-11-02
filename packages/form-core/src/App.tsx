@@ -21,7 +21,7 @@ export default defineComponent({
     SchemaForm,
   },
   setup () {
-    const contextRef = ref();
+    // const contextRef = ref();
     const selectedRef: Ref<number> = ref(0);
     const demo: {
       schema: Schema | null;
@@ -107,7 +107,6 @@ export default defineComponent({
           <a-col span="12">
             <schema-form
               value={demo.data}
-              contextRef={contextRef}
               onChange={handleChange}
               schema={demo.schema}
             />

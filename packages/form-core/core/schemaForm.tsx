@@ -1,14 +1,11 @@
 import {
-  defineComponent, PropType, provide, reactive,
+  defineComponent, markRaw, PropType, provide, reactive,
 } from 'vue';
 import { Schema } from './types';
 import SchemaItem from './schemaItem';
-import { SchemaFormContextKey } from './context';
+import { SchemaFormContextKey, SchemaFormContextProps } from './context';
 export default defineComponent({
   name: 'SchemaForm',
-  components: {
-    SchemaItem,
-  },
   props: {
     schema: {
       type: Object as PropType<Schema>,
@@ -26,14 +23,15 @@ export default defineComponent({
     const onChange = (v: any) => {
       props.onChange(v);
     };
-    const context = reactive({
-      SchemaItem,
+    const context = reactive<SchemaFormContextProps>({
+      // @ts-ignore
+      SchemaItem: markRaw(SchemaItem),
     });
     provide(SchemaFormContextKey, context);
     return () => {
       const { schema, value } = props;
       return (
-        <schema-item
+        <SchemaItem
           value={value}
           schema={schema}
           rootSchema={schema}

@@ -1,7 +1,6 @@
 /* eslint-disable */
 import Ajv from 'ajv';
 import jsonpointer from 'jsonpointer';
-// @ts-ignore
 import { union } from 'lodash-es';
 import mergeAllOf from 'json-schema-merge-allof';
 

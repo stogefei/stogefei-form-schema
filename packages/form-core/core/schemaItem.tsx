@@ -1,20 +1,20 @@
 import { computed, defineComponent } from 'vue';
 import { SchemaTypes, FieldProps } from './types';
 import {
-  StringField, NumberField, ObjectField, ArrayField,
+  NumberField, ObjectField, ArrayField, StringField,
 } from './fields';
+// NumberField, ObjectField, ArrayField,StringField
 import { retrieveSchema } from './utils';
 // import { useVJSFContext } from './context';
 export default defineComponent({
   name: 'SchemaFormItem',
   props: FieldProps,
-  setup (props, { slots, attrs, emit }) {
+  setup (props) {
     const retrievedSchemaRef = computed(() => {
       const { schema, rootSchema, value } = props;
       // const formContext = useVJSFContext();
       return retrieveSchema(schema, rootSchema, value);
     });
-    // console.log(retrievedSchemaRef, 'retrievedSchemaRef');
     return () => {
       const schema = props.schema;
       const type = schema?.type;

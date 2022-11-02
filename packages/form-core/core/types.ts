@@ -74,6 +74,10 @@ export const FieldProps = {
   // },
 } as const;
 
+export type CommonWidgetDefine = DefineComponent<
+  typeof CommonWidgetPropsDefine
+>;
+
 export type CommonFieldType = DefineComponent<typeof FieldProps>;
 
 export const CommonWidgetPropsDefine = {

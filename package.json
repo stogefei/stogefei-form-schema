@@ -8,7 +8,9 @@
     "cz": "npx git-cz",
     "prepare": "husky install",
     "dev:form": "cd ./packages/form-core && yarn run serve",
-    "test:form": "cd ./packages/form-core && yarn run test:unit"
+    "test:form": "cd ./packages/form-core && yarn run test:unit",
+    "build": "cd ./packages/form-core && yarn run build:core",
+    "build:theme": "cd ./packages/form-core && yarn run build:theme"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.13.10",

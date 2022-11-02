@@ -5,6 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:core": "mode=production vue-cli-service build --no-clean --target lib --name index core/index.ts --mode lib",
+    "build:theme": "mode=production vue-cli-service build --no-clean --target lib --name theme-default/index core/theme-default/index.tsx --mode lib",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },

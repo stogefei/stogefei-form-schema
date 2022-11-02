@@ -1,6 +1,7 @@
 const { defineConfig } = require('@vue/cli-service');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const CircularPlugin = require('circular-dependency-plugin');
+const env = process.env.mode === 'production';
 const lang = new MonacoWebpackPlugin();
 const circular = new CircularPlugin();
 module.exports = defineConfig({
@@ -15,7 +16,9 @@ module.exports = defineConfig({
     },
   },
   chainWebpack (config) {
-    config.plugin('monaco').use(lang);
-    config.plugin('circular').use(circular);
+    if (!env) {
+      config.plugin('monaco').use(lang);
+      config.plugin('circular').use(circular);
+    }
   },
 });

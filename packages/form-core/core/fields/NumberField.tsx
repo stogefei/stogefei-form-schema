@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue';
 import { InputNumber } from 'ant-design-vue';
-import { FieldProps } from '../types';
+import { FieldProps, CommonWidgetNames } from '../types';
+import { getWidget } from '../theme';
 export default defineComponent({
   name: 'NumberField',
   components: {
@@ -8,14 +9,14 @@ export default defineComponent({
   },
   props: FieldProps,
   setup (props, { emit }) {
-    const onChange = (val: number) => {
+    const handleChange = (val: number) => {
       emit('change', val);
     };
-    return {
-      onChange,
+    const NumberWidgetRef = getWidget(CommonWidgetNames.NumberWidget);
+    return () => {
+      const NumberWidget = NumberWidgetRef.value;
+      const { rootSchema, onChange, ...rest } = props;
+      return <NumberWidget {...rest} onChange={handleChange} />;
     };
-  },
-  render () {
-    return <a-input-number value={this.value} onChange={this.onChange} />;
   },
 });

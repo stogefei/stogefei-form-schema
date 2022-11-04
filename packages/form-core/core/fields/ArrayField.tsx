@@ -1,17 +1,20 @@
 import { defineComponent } from 'vue';
-import { FieldProps, Schema } from '../types';
+import { FieldProps, Schema, SelectionWidgetName } from '../types';
 import { useVJSFContext } from '../context';
 import ArrayItemWrapper from '../wrapper/ArrayItemWrapper';
-import Selection from '../widgets/selection';
+// import Selection from '../widgets/selection';
+import { getWidget } from '../theme';
+
 export default defineComponent({
   name: 'ArrayField',
   components: {
     ArrayItemWrapper,
-    SelectionWidget: Selection,
+    // SelectionWidget: Selection,
   },
   props: FieldProps,
   setup: function (props) {
     const context = useVJSFContext();
+    const SelectionWidgetRef = getWidget(SelectionWidgetName.SelectionWidget);
     // 针对于 multiType 函数的 handle 函数
     const handleArrayItemChange = (v: any, index: number) => {
       const { value } = props;
@@ -53,6 +56,8 @@ export default defineComponent({
     return () => {
       const { schema, rootSchema, value } = props;
       const { SchemaItem } = context;
+      // const SelectionWidget = theme.widgets[SelectionWidgetName.SelectionWidget];
+      const SelectionWidget = SelectionWidgetRef.value;
       const isMultiType = Array.isArray(schema.items); // 数组
       // @ts-ignore
       const isSelect: any = schema?.items && schema?.items?.enum; // 单一类型
@@ -98,7 +103,7 @@ export default defineComponent({
           value: e,
         }));
         return (
-          <selection-widget
+          <SelectionWidget
             options={options || []}
             value={props.value}
             onChange={props.onChange}

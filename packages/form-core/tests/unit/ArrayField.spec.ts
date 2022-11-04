@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import SchemaForm from '../../core';
+import TestComponent from './utils/TestComponent';
 import { NumberField, StringField, ArrayField } from '../../core/fields';
 import selection from '../../core/widgets/selection';
 describe('ArrayField', () => {
@@ -15,7 +15,7 @@ describe('ArrayField', () => {
     ],
   };
   it('render multiType successFully', async () => {
-    const wrapper = mount(SchemaForm, {
+    const wrapper = mount(TestComponent, {
       props: {
         schema,
         onChange: () => {},
@@ -30,7 +30,7 @@ describe('ArrayField', () => {
   });
 
   it('render single successFully', async () => {
-    const wrapper = mount(SchemaForm, {
+    const wrapper = mount(TestComponent, {
       props: {
         schema: {
           type: 'array',
@@ -49,7 +49,7 @@ describe('ArrayField', () => {
     // expect(stringField.length).toBe(2);
   });
   it('render arraySelectFields successFully', async () => {
-    const wrapper = mount(SchemaForm, {
+    const wrapper = mount(TestComponent, {
       props: {
         schema: {
           type: 'array',

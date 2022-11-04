@@ -1,10 +1,11 @@
-import { defineComponent } from 'vue';
+import SelectionWidget from './SelectionWidget';
+import TextWidget from './TextWidget';
+import NumberWidget from './NumberWidget';
 
-export default defineComponent({
-  name: 'ThemeDefault',
-  setup () {
-    return () => {
-      return null;
-    };
+export default {
+  widgets: {
+    SelectionWidget,
+    TextWidget,
+    NumberWidget,
   },
-});
+};

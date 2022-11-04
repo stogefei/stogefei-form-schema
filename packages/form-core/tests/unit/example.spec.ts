@@ -7,23 +7,23 @@ import { NumberField } from '../../core/fields';
 // % Lines行覆盖率（line coverage）：未执行的代码行数
 
 describe('SchemaForm', () => {
-  it('render number successFully', () => {
-    let value = '';
-    const wrapper = mount(SchemaForm, {
-      props: {
-        // schema: { type: 'number' },
-        schema: {
-          type: 'number',
-        },
-        value: value,
-        onChange: (v: any) => {
-          value = v;
-        },
-      },
-    });
-    const numberField = wrapper.findComponent(NumberField);
-    expect(numberField.exists()).toBeTruthy();
-    numberField.props('onChange')(1233);
-    expect(value).toBe(1233);
-  });
+  // it('render number successFully', () => {
+  //   let value = '';
+  //   const wrapper = mount(SchemaForm, {
+  //     props: {
+  //       // schema: { type: 'number' },
+  //       schema: {
+  //         type: 'number',
+  //       },
+  //       value: value,
+  //       onChange: (v: any) => {
+  //         value = v;
+  //       },
+  //     },
+  //   });
+  //   const numberField = wrapper.findComponent(NumberField);
+  //   expect(numberField.exists()).toBeTruthy();
+  //   numberField.props('onChange')(1233);
+  //   expect(value).toBe(1233);
+  // });
 });

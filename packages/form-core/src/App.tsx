@@ -4,8 +4,9 @@ import {
 import { Col, Row, Divider } from 'ant-design-vue';
 import './styles/app.less';
 import monaco from './components/monaco-editor';
-import SchemaForm from '../core/index';
+import SchemaForm, { ThemeProvider } from '../core/index';
 import demos from '../demos';
+import themeDefault from '../core/theme-default';
 type Schema = any;
 type UISchema = any;
 function toJson (data: any) {
@@ -50,14 +51,13 @@ export default defineComponent({
       demo.dataCode = toJson(demoData.default);
       demo.uiSchemaCode = toJson(demoData.uiSchema);
     });
-
     const handleCodeChange = (
       field: 'schema' | 'data' | 'uiSchema',
       value: string,
     ) => {
-      console.log(value, 'value');
-      console.log(demo, 'demo----');
-      console.log(demo[field], 'demo[field]----');
+      // console.log(value, 'value');
+      // console.log(demo, 'demo----');
+      // console.log(demo[field], 'demo[field]----');
       try {
         const json = JSON.parse(value);
         demo[field] = json;
@@ -66,7 +66,7 @@ export default defineComponent({
       // editorContent.value = val;
     };
     const handleChange = (v: any) => {
-      console.log(v, 'handleChange');
+      // console.log(v, 'handleChange');
       demo.data = v;
       demo.dataCode = toJson(v);
     };
@@ -105,11 +105,13 @@ export default defineComponent({
             </div>
           </a-col>
           <a-col span="12">
-            <schema-form
-              value={demo.data}
-              onChange={handleChange}
-              schema={demo.schema}
-            />
+            <ThemeProvider theme={themeDefault as any}>
+              <schema-form
+                value={demo.data}
+                onChange={handleChange}
+                schema={demo.schema}
+              />
+            </ThemeProvider>
           </a-col>
         </a-row>
       );

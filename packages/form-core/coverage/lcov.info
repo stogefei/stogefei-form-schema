@@ -16,7 +16,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:core/index.ts
+SF:core/index.tsx
 FNF:0
 FNH:0
 DA:1,3
@@ -664,7 +664,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:core/fields/index.ts
+SF:core/fields/index.tsx
 FNF:0
 FNH:0
 DA:1,3

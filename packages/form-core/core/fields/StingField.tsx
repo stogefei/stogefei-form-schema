@@ -16,12 +16,21 @@ export default defineComponent({
       const widgetRef = getWidget(CommonWidgetNames.TextWidget, props);
       return widgetRef.value;
     });
-
+    const widgetOptionsRef = computed(() => {
+      const { properties, items, ...rest } = props.uiSchema;
+      return rest;
+    });
     return () => {
       const { rootSchema, onChange, ...rest } = props;
       const TextWidget = TextWidgetRef.value;
       // 在 props 里面有相同的 keys 会 mergeProps 合并
-      return <TextWidget {...rest} onChange={handleChange} />;
+      return (
+        <TextWidget
+          {...rest}
+          options={widgetOptionsRef.value}
+          onChange={handleChange}
+        />
+      );
     };
   },
 });

@@ -54,7 +54,9 @@ export default defineComponent({
       props.onChange(arr);
     };
     return () => {
-      const { schema, rootSchema, value } = props;
+      const {
+        schema, rootSchema, value, uiSchema,
+      } = props;
       const { SchemaItem } = context;
       // const SelectionWidget = theme.widgets[SelectionWidgetName.SelectionWidget];
       const SelectionWidget = SelectionWidgetRef.value;
@@ -65,11 +67,17 @@ export default defineComponent({
         const items: Schema[] = schema.items as any;
         const arr = Array.isArray(value) ? value : [];
         return items.map((s: Schema, index: number) => {
+          const itemUiSchema = uiSchema.items;
+          const us =
+            (Array.isArray(itemUiSchema)
+              ? itemUiSchema[index]
+              : itemUiSchema) || {};
           return (
             <SchemaItem
               schema={s}
               key={index}
               rootSchema={rootSchema}
+              uiSchema={us as any}
               value={arr[index]}
               onChange={(v: any) => handleArrayItemChange(v, index)}
             />
@@ -88,7 +96,7 @@ export default defineComponent({
             >
               <SchemaItem
                 schema={schema.items as Schema}
-                key={index}
+                uiSchema={(uiSchema.items as any) || {}}
                 rootSchema={rootSchema}
                 value={s}
                 onChange={(v: any) => handleArrayItemChange(v, index)}

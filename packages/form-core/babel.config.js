@@ -25,5 +25,6 @@ module.exports = {
       { libraryName: 'ant-design-vue', libraryDirectory: 'es', style: true },
       'ant-design-vue',
     ],
+    ['@vue/babel-plugin-jsx', { mergeProps: false }],
   ],
 };

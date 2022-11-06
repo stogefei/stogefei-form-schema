@@ -4,6 +4,7 @@ import {
 import { Col, Row, Divider } from 'ant-design-vue';
 import './styles/app.less';
 import monaco from './components/monaco-editor';
+import customFormat from './plugins/customForm';
 import SchemaForm, { ThemeProvider } from '../core/index';
 import demos from '../demos';
 import themeDefault from '../core/theme-default';
@@ -44,6 +45,7 @@ export default defineComponent({
     watchEffect(() => {
       const index = selectedRef.value;
       const demoData: any = demos[index];
+      console.log(demoData, 'demoData--');
       demo.data = demoData.default;
       demo.schema = demoData.schema;
       demo.schemaCode = toJson(demoData.schema);
@@ -55,7 +57,7 @@ export default defineComponent({
       field: 'schema' | 'data' | 'uiSchema',
       value: string,
     ) => {
-      // console.log(value, 'value');
+      console.log(value, 'value');
       // console.log(demo, 'demo----');
       // console.log(demo[field], 'demo[field]----');
       try {
@@ -110,6 +112,8 @@ export default defineComponent({
                 value={demo.data}
                 onChange={handleChange}
                 schema={demo.schema}
+                customFormats={customFormat}
+                uiSchema={demo.uiSchema || {}}
               />
             </ThemeProvider>
           </a-col>

@@ -1,41 +1,47 @@
-// import PasswordWidget from '@/components/PasswordWiget'
+import PasswordWidget from '../src/components/password';
 
 export default {
   name: 'Demo',
   schema: {
     type: 'object',
     properties: {
-      firstName: {
+      pass1: {
         type: 'string',
+        // minLength: 10,
         test: true,
         title: 'password',
       },
-      lastName: {
+      pass2: {
         type: 'string',
         minLength: 10,
         title: 're try password',
       },
-      age: {
-        type: 'number',
+      color: {
+        type: 'string',
         format: 'color',
         title: 'Input Color',
       },
     },
   },
+  async customValidate (data: any, errors: any) {
+    return new Promise((resolve: any) => {
+      setTimeout(() => {
+        if (data.pass1 !== data.pass2) {
+          errors.pass2.addError('密码必须相同');
+        }
+        resolve();
+      }, 0);
+    });
+  },
   uiSchema: {
     properties: {
       pass1: {
-        widget: '',
+        widget: PasswordWidget,
       },
       pass2: {
         color: 'red',
       },
     },
   },
-  // default: 99,
-  default: {
-    firstName: 'zaf',
-    lastName: 'zhuaf',
-    age: 25,
-  },
+  default: 1,
 };
